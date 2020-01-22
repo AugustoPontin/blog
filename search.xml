@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/blog/Programacao/hello-world/</url>
+    <content><![CDATA[<p>Sempre começamos algo novo na programação com um Hello World, aqui não poderia ser diferente!</p>
+<p><code>MsgAlert(&quot;Hello World&quot;)</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">  &lt;h1&gt;Hello World&lt;&#x2F;h1&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  alert( &#39;Hello World&#39; );</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo &quot;Hello World&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>E por aí vai!!</p>
+]]></content>
+      <categories>
+        <category>Programação</category>
+      </categories>
+      <tags>
+        <tag>CASUAL</tag>
+      </tags>
+  </entry>
+</search>
