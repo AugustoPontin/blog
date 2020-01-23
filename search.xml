@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DBAccess-Distribuido</title>
-    <url>/blog/uncategorized/DBAccess-Distribuido/</url>
-    <content><![CDATA[<p>title: DBAccess Distribuído<br>author: Augusto Pontin<br>tags:</p>
-<ul>
-<li>dbAccess</li>
-</ul>
-<p>categories:</p>
-<ul>
-<li>Protheus</li>
-</ul>
-<h2 id="date-2020-01-23-20-05-00"><a href="#date-2020-01-23-20-05-00" class="headerlink" title="date: 2020-01-23 20:05:00"></a>date: 2020-01-23 20:05:00</h2><p>Hoje várias empresas utilizam o balanceamento de carga nos serviços (AppServer) para que consiga ter uma melhor administração e estabilidade no ERP, fazendo assim a distribuição dos acessos ao Protheus em diversos serviços que podem estar configurados em servidores na rede ou tudo em apenas um servidor.</p>
+    <title>DBAccess Distribuído</title>
+    <url>/blog/Protheus/DBAccess-Distribuido/</url>
+    <content><![CDATA[<p>Hoje várias empresas utilizam o balanceamento de carga nos serviços (AppServer) para que consiga ter uma melhor administração e estabilidade no ERP, fazendo assim a distribuição dos acessos ao Protheus em diversos serviços que podem estar configurados em servidores na rede ou tudo em apenas um servidor.</p>
 <p>Você sabia que é possível realizar a distrubuição das conexões em diversos DBAccess? logo abaixo você irá encontrar como fazer a configuração correta do balanceamento e desfrutar dessa funcionalidade que pode ajudar em muito no desempenho do seu ERP.</p>
 <a id="more"></a>
 
@@ -54,6 +46,12 @@
 <p>O DBMonitor somente tem acesso às informações e conexões processadas naquele serviço. Logo, para localizar uma conexão no ambiente mencionado deve-se abrir um DBMonitor para cada DBAccess SLAVE.</p>
 <p>O DBAccess com balanceamento e controle de licenças centralizado no MASTER depende da build com release igual ou superior a 20170202.</p>
 ]]></content>
+      <categories>
+        <category>Protheus</category>
+      </categories>
+      <tags>
+        <tag>dbAccess</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
