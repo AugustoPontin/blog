@@ -14,7 +14,7 @@
 <p><strong>Mão na Massa</strong></p>
 <p>Usando como exemplo um ambiente com 3 servidores, nomeados SRVDB, SRVAPP1 e SRVAPP2, onde o servidor de banco de dados possui o DBAccess MASTER e os servidores SRVAPP1 e SRVAPP2 possuam cada um 2 serviços do AppServer configurados para se conectar ao DBAccess SLAVE em seus próprios servidores.</p>
 <p>A imagem abaixo demonstra o cenário estudado</p>
-<p><img src="../images/dbaccess_1.png" alt="dbAcces Distribuído" title="dbAcces Distribuído"></p>
+<p><img src="/blog/images/dbaccess_1.png" alt="dbAcces Distribuído" title="dbAcces Distribuído"></p>
 <p>Vamos seguindo passo a passo:</p>
 <ul>
 <li>Instale um DBAccess em cada servidor que contém o AppServer (SRVAPP1 e SRVAPP2)</li>
