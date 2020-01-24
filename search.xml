@@ -3,17 +3,17 @@
   <entry>
     <title>DBAccess Distribuído</title>
     <url>/blog/Protheus/DBAccess-Distribuido/</url>
-    <content><![CDATA[<p>Hoje várias empresas utilizam o balanceamento de carga nos serviços (AppServer) para que consiga ter uma melhor administração e estabilidade no ERP, fazendo assim a distribuição dos acessos ao Protheus em diversos serviços que podem estar configurados em servidores na rede ou tudo em apenas um servidor.</p>
-<p>Você sabia que é possível realizar a distrubuição das conexões em diversos DBAccess? logo abaixo você irá encontrar como fazer a configuração correta do balanceamento e desfrutar dessa funcionalidade que pode ajudar em muito no desempenho do seu ERP.</p>
+    <content><![CDATA[<p>Várias empresas utilizam o balanceamento de carga nos serviços (AppServer) para que consigam ter uma melhor administração e estabilidade no ERP, fazendo assim a distribuição dos acessos ao Protheus em diversos serviços que podem estar configurados em servidores na rede ou tudo em apenas um servidor.</p>
+<p>Você sabia que é possível realizar a distrubuição das conexões em diversos DBAccess? logo abaixo explicamos como fazer a configuração correta do balanceamento e como desfrutar dessa funcionalidade que pode ajudar em muito no desempenho do seu ERP.</p>
 <a id="more"></a>
 
 <p>Poucos sabem da possibilidade de realizar o balanceamento do DBAccess (topconnect para os mais antigos) ou como configura-lo da melhor maneira.</p>
-<p><strong>Estudo de caso:</strong> Sabendo que nesse mundo tecnológico nem tudo sai conforme o combinado, me deparei com um ambiente em que o DBAccess estava recebendo mais de 1.000 acessos simultâneos e não estava dando conta de responder a todos de forma satisfatória, ocasionando bloqueios de acesso diversas vezes e queda de performance.</p>
+<p><strong>Estudo de caso:</strong> Sabendo que nesse mundo tecnológico nem tudo sai conforme o combinado, me deparei com um ambiente em que o DBAccess estava recebendo mais de 1.000 acessos simultâneos e não estava dando conta de responder a todos de forma satisfatória, ocasionando bloqueios de acesso e queda de performance.</p>
 <p>E agora José? Vamos ver abaixo mais detalhes sobre o balanceamento de carga no DBAccess e como configurá-lo:</p>
-<p>Um <strong>detalhe importante</strong> é que o DBAccess que receberá a função de MASTER não é responsável por fazer a distribuição da carga ou das conexões. Deste modo, cada serviço do AppServer deve ser explicitamente configurado para se conectar a um DBAccess SLAVE e esse por sua vez é configurado para se conectar ao DBAccess MASTER que vai realizar os controles de LOCK (bloqueios para evitar acesso simultâneo aos registros em alteração) e de licenças de uso do ERP.</p>
+<p>Um <strong>detalhe importante</strong> é que o DBAccess que recebe a função de MASTER não é responsável por fazer a distribuição da carga ou das conexões como acontece no balanceamento do appserver. Deste modo, cada serviço do AppServer deve ser explicitamente configurado para se conectar a um DBAccess SLAVE e esse por sua vez é configurado para se conectar ao DBAccess MASTER que vai realizar os controles de LOCK (bloqueios para evitar acesso simultâneo aos registros em alteração) e de licenças de uso do ERP.</p>
 <p><strong>Mão na Massa</strong></p>
-<p>Usando como exemplo um ambiente com 3 servidores, nomeados SRVDB, SRVAPP1 e SRVAPP2, onde o servidor de banco de dados possui o DBAccess MASTER e os servidores SRVAPP1 e SRVAPP2 possuam cada um 2 serviços do AppServer configurados para se conectar ao DBAccess SLAVE em seus próprios servidores.</p>
-<p>A imagem abaixo demonstra o cenário estudado</p>
+<p>Usando como exemplo um ambiente com 3 servidores, nomeados SRVDB, SRVAPP1 e SRVAPP2, onde o servidor de banco de dados possui o DBAccess MASTER e os servidores SRVAPP1 e SRVAPP2 possuem cada um 2 serviços do AppServer configurados para se conectar ao DBAccess SLAVE em seus próprios servidores.</p>
+<p>A imagem abaixo ilustra o cenário estudado</p>
 <p><img src="/blog/images/dbaccess_1.png" alt="dbAcces Distribuído" title="dbAcces Distribuído"></p>
 <p>Vamos seguindo passo a passo:</p>
 <ul>
@@ -36,13 +36,13 @@
 <li>Inicie o DBAccess no servidor SRVDB</li>
 <li>Inicie o DBAccess nos servidores de aplicação (SRVAPP1 e SRVAPP2)</li>
 <li>Teste as conexões de cada um dos DBAccess usando o DBMonitor</li>
-<li>Altere os arquivos de configuração (appserver.ini) dos servidores SRVAPP1 e SRVAPP2 para se conectar o DBAccess SLAVE do próprio servidor</li>
+<li>Altere os arquivos de configuração (appserver.ini) dos servidores SRVAPP1 e SRVAPP2 para se conectar ao DBAccess SLAVE do próprio servidor</li>
 </ul>
-<p>Exemplo da configuração no appserver.ini do AppServer Slave01 do nosso cenário:</p>
+<p>Exemplo da configuração no appserver.ini do “AppServer Slave01” do nosso cenário:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[DBAccess]</span><br><span class="line">DataBase&#x3D;MSSQL</span><br><span class="line">Server&#x3D;SRVAPP1</span><br><span class="line">Port&#x3D;7890</span><br><span class="line">Alias&#x3D;P12</span><br></pre></td></tr></table></figure>
 
 <p><strong>Características do DBAccess com balanceamento de carga</strong></p>
-<p>Um DBAccess SLAVE somente consegue estabelecer conexão com o banco de dados se conseguir conectar primeiro com o DBAcccess MASTER.</p>
+<p>Um DBAccess SLAVE somente consegue estabelecer conexão com o banco de dados se conseguir conectar primeiro com o DBAccess MASTER.</p>
 <p>O DBMonitor somente tem acesso às informações e conexões processadas naquele serviço. Logo, para localizar uma conexão no ambiente mencionado deve-se abrir um DBMonitor para cada DBAccess SLAVE.</p>
 <p>O DBAccess com balanceamento e controle de licenças centralizado no MASTER depende da build com release igual ou superior a 20170202.</p>
 ]]></content>
