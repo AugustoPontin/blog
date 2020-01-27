@@ -46,23 +46,22 @@
   };
 </script>
 
-  <meta name="description" content="Codando, Evoluindo, Inovando...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Augusto Pontin">
-<meta property="og:url" content="https://augustopontin.github.io/archives/2020/01/index.html">
+  <meta name="description" content="Imagine a situação em que é necessário apresentar uma informação para o usuário e essa informação tem que ser fechada automaticamente após X tempo, por exemplo em processos dentro de um controle de tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Temporizador de telas no Protheus">
+<meta property="og:url" content="https://augustopontin.github.io/Protheus/Temporizador-de-telas-no-Protheus/index.html">
 <meta property="og:site_name" content="Augusto Pontin">
-<meta property="og:description" content="Codando, Evoluindo, Inovando...">
+<meta property="og:description" content="Imagine a situação em que é necessário apresentar uma informação para o usuário e essa informação tem que ser fechada automaticamente após X tempo, por exemplo em processos dentro de um controle de tr">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://augustopontin.github.io/blog/images/temporizador_1.png">
+<meta property="article:published_time" content="2020-01-27T15:57:22.283Z">
+<meta property="article:modified_time" content="2020-01-27T15:57:22.283Z">
 <meta property="article:author" content="Augusto Pontin">
-<meta property="article:tag" content="advpl">
-<meta property="article:tag" content=" protheus">
-<meta property="article:tag" content=" totvs">
-<meta property="article:tag" content=" pontin">
-<meta property="article:tag" content=" react">
-<meta property="article:tag" content=" node">
+<meta property="article:tag" content="ADVPL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augustopontin.github.io/blog/images/temporizador_1.png">
 
-<link rel="canonical" href="https://augustopontin.github.io/archives/2020/01/">
+<link rel="canonical" href="https://augustopontin.github.io/Protheus/Temporizador-de-telas-no-Protheus/">
 
 
 <script id="page-configurations">
@@ -70,11 +69,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Arquivo | Augusto Pontin</title>
+  <title>Temporizador de telas no Protheus | Augusto Pontin</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157018084-1"></script>
     <script>
@@ -215,93 +214,132 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="pt-BR">
+    <link itemprop="mainEntityOfPage" href="https://augustopontin.github.io/Protheus/Temporizador-de-telas-no-Protheus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Augusto Pontin">
+      <meta itemprop="description" content="Codando, Evoluindo, Inovando...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Augusto Pontin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Temporizador de telas no Protheus
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Postado em</span>
+
+              <time title="Post created: 27-01-2020 12:57:22" itemprop="dateCreated datePublished" datetime="2020-01-27T12:57:22-03:00">27-01-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">Em</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Protheus/" itemprop="url" rel="index">
+                    <span itemprop="name">Protheus</span>
+                  </a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Uhmmmm...! 3 posts no total. Continuar no post.</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/Protheus/Temporizador-de-telas-no-Protheus/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Protheus/Temporizador-de-telas-no-Protheus/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <p>Imagine a situação em que é necessário apresentar uma informação para o usuário e essa informação tem que ser fechada automaticamente após X tempo, por exemplo em processos dentro de um controle de transação, onde se o usuário demorar para clicar em fechar a transação ficará travada e bloqueará outros usuários.</p>
+<a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p>Irei demonstrar abaixo como garantir que a tela/mensagem seja fechada em 10 segundos (você pode configurar o tempo) e ainda demonstrando para o usuário segundo a segundo quanto tempo falta para o fechamento automático.</p>
+<p>O resultado final será esse:<br><img src="/blog/images/temporizador_1.png" alt="Timer ADVPL" title="Temporizador ADVPL"></p>
+<p>O <strong>timer</strong> no “Fechamento automático em:” será atualizado segundo a segundo até chegar em 0 e fechar a mensagem automaticamente.</p>
+<p>Essa solução resolveu, por exemplo, um enorme problema no balcão de vendas em que um vendedor bloqueava todos os outros deixando essa tela aberta enquanto encaminhava os produtos para a expedição.</p>
+<p><strong>Mão na Massa</strong></p>
+<p>No código abaixo estou criando uma dialog (tela) para informar ao usuário o número do DAV, igual na imagem acima.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">User Function PONTIN001()</span><br><span class="line"></span><br><span class="line">  Local cNumDav   :&#x3D; &quot;0000042025&quot;</span><br><span class="line"></span><br><span class="line">  Private nStop   :&#x3D; 0</span><br><span class="line">  Private nTempo  :&#x3D; 10</span><br><span class="line">  Private nLimite :&#x3D; nTempo</span><br><span class="line"></span><br><span class="line">  DEFINE MSDIALOG oDlg1 TITLE &quot;augustopontin.github.io&#x2F;blog&quot; FROM 000, 000  TO 160, 365 COLORS 0, 16777215 PIXEL</span><br><span class="line"></span><br><span class="line">  oFontTit :&#x3D; TFont():New( &quot;Cooper Black&quot;, 0, -19,, .F., 0,, 400, .F. ,.F. ,,,,,, )</span><br><span class="line">  oFontDav :&#x3D; TFont():New( &quot;Cooper Black&quot;, 0, -32,, .F., 0,, 400, .F., .F.,,,,,, )</span><br><span class="line">  oGrp1    :&#x3D; TGroup():New( 004, 004, 055, 180, &quot;&quot;, oDlg1, CLR_BLACK, CLR_WHITE, .T., .F. )</span><br><span class="line">  oSay1 :&#x3D; TSay():New( 012, 050,&#123;||&quot;CÓDIGO DO DAV&quot;&#125;, oGrp1,, oFontTit, .F., .F., .F., .T., CLR_BLUE, CLR_WHITE, 092, 012)</span><br><span class="line">  oSay2 :&#x3D; TSay():New( 026,045,&#123;||cNumDav&#125;, oGrp1,, oFontDav, .F., .F., .F., .T., CLR_HRED, CLR_WHITE, 100, 026)</span><br><span class="line">  oSay3 :&#x3D; TSay():New( 045, 050, &#123;||&quot;FECHAMENTO AUTOMATICO EM: &quot;&#125;, oDlg1,,, .F., .F., .F., .T., CLR_BLUE, CLR_WHITE, 092, 012)</span><br><span class="line">  oSay4 :&#x3D; TSay():New( 045,145,&#123;||cValToChar(nTempo)&#125;, oDlg1,,, .F., .F., .F., .T., CLR_HRED, CLR_WHITE, 100, 026)</span><br><span class="line">  oBtn1 :&#x3D; TButton():New( 060, 066,&quot;OK&quot;,oDlg1,&#123;||oDlg1:End()&#125;, 056, 016,,,, .T.,,&quot;&quot;,,,, .F. )</span><br><span class="line"></span><br><span class="line">  nMilissegundos :&#x3D; 1000 &#x2F;&#x2F; Disparo será de 1 em 1 segundos</span><br><span class="line">  oTimer :&#x3D; TTimer():New(nMilissegundos, &#123;||  IIf(nStop&lt;&gt;nLimite, Tempo(), oDlg1:End()) &#125;, oDlg1 )</span><br><span class="line">  oTimer:Activate()</span><br><span class="line"></span><br><span class="line">  oDlg1:Activate(,,,.T.)</span><br><span class="line"></span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-27T12:57:22-03:00"
-              content="27-01-2020">
-          01-27
-        </time>
-      </div>
+<p>O segredo está na função <strong>TTimer</strong>, ela irá disparar o bloco de códigos <em>“{|| IIf(nStop&lt;&gt;10,Tempo(),oDlg1:End()) }”</em> a cada 1000 milissegundos (1 segundo).</p>
+<p>Em seguida, criamos uma Static Function com nome de <strong>Tempo()</strong> para atualizar a variável de controle dos segundos.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Static Function Tempo()</span><br><span class="line"></span><br><span class="line">  nTempo :&#x3D; nLimite - nStop</span><br><span class="line"></span><br><span class="line">  oSay4:Refresh()</span><br><span class="line"></span><br><span class="line">  nStop++</span><br><span class="line"></span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/blog/Protheus/Temporizador-de-telas-no-Protheus/" itemprop="url">
-            <span itemprop="name">Temporizador de telas no Protheus</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-23T19:40:10-03:00"
-              content="23-01-2020">
-          01-23
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/blog/Protheus/DBAccess-Distribuido/" itemprop="url">
-            <span itemprop="name">DBAccess Distribuído</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-02T20:18:00-03:00"
-              content="02-01-2020">
-          01-02
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/blog/Programacao/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+<p>Essa função é responsável por atualizar a variável de controle de parada <em>nStop</em> e atualizar a variável que demonstra segundo a segundo para o usuário quanto falta para fechar a tela <em>nTempo</em>.<br>E claro, antes de sair da função é realizado um refresh no objeto TSay <em>oSay4</em>.</p>
+<p>Está ai, algo bem simples, porém interessante e com muita aplicação !!</p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/ADVPL/" rel="tag"># ADVPL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/Protheus/DBAccess-Distribuido/" rel="prev" title="DBAccess Distribuído">
+      <i class="fa fa-chevron-left"></i> DBAccess Distribuído
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -490,6 +528,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://augustopontin.github.io/Protheus/Temporizador-de-telas-no-Protheus/",
+            identifier: "Protheus/Temporizador-de-telas-no-Protheus/",
+            title: "Temporizador de telas no Protheus"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-augustopontin-github-io-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

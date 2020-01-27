@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Temporizador de telas no Protheus</title>
+    <url>/blog/Protheus/Temporizador-de-telas-no-Protheus/</url>
+    <content><![CDATA[<p>Imagine a situação em que é necessário apresentar uma informação para o usuário e essa informação tem que ser fechada automaticamente após X tempo, por exemplo em processos dentro de um controle de transação, onde se o usuário demorar para clicar em fechar a transação ficará travada e bloqueará outros usuários.</p>
+<a id="more"></a>
+
+<p>Irei demonstrar abaixo como garantir que a tela/mensagem seja fechada em 10 segundos (você pode configurar o tempo) e ainda demonstrando para o usuário segundo a segundo quanto tempo falta para o fechamento automático.</p>
+<p>O resultado final será esse:<br><img src="/blog/images/temporizador_1.png" alt="Timer ADVPL" title="Temporizador ADVPL"></p>
+<p>O <strong>timer</strong> no “Fechamento automático em:” será atualizado segundo a segundo até chegar em 0 e fechar a mensagem automaticamente.</p>
+<p>Essa solução resolveu, por exemplo, um enorme problema no balcão de vendas em que um vendedor bloqueava todos os outros deixando essa tela aberta enquanto encaminhava os produtos para a expedição.</p>
+<p><strong>Mão na Massa</strong></p>
+<p>No código abaixo estou criando uma dialog (tela) para informar ao usuário o número do DAV, igual na imagem acima.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User Function PONTIN001()</span><br><span class="line"></span><br><span class="line">  Local cNumDav   :&#x3D; &quot;0000042025&quot;</span><br><span class="line"></span><br><span class="line">  Private nStop   :&#x3D; 0</span><br><span class="line">  Private nTempo  :&#x3D; 10</span><br><span class="line">  Private nLimite :&#x3D; nTempo</span><br><span class="line"></span><br><span class="line">  DEFINE MSDIALOG oDlg1 TITLE &quot;augustopontin.github.io&#x2F;blog&quot; FROM 000, 000  TO 160, 365 COLORS 0, 16777215 PIXEL</span><br><span class="line"></span><br><span class="line">  oFontTit :&#x3D; TFont():New( &quot;Cooper Black&quot;, 0, -19,, .F., 0,, 400, .F. ,.F. ,,,,,, )</span><br><span class="line">  oFontDav :&#x3D; TFont():New( &quot;Cooper Black&quot;, 0, -32,, .F., 0,, 400, .F., .F.,,,,,, )</span><br><span class="line">  oGrp1    :&#x3D; TGroup():New( 004, 004, 055, 180, &quot;&quot;, oDlg1, CLR_BLACK, CLR_WHITE, .T., .F. )</span><br><span class="line">  oSay1 :&#x3D; TSay():New( 012, 050,&#123;||&quot;CÓDIGO DO DAV&quot;&#125;, oGrp1,, oFontTit, .F., .F., .F., .T., CLR_BLUE, CLR_WHITE, 092, 012)</span><br><span class="line">  oSay2 :&#x3D; TSay():New( 026,045,&#123;||cNumDav&#125;, oGrp1,, oFontDav, .F., .F., .F., .T., CLR_HRED, CLR_WHITE, 100, 026)</span><br><span class="line">  oSay3 :&#x3D; TSay():New( 045, 050, &#123;||&quot;FECHAMENTO AUTOMATICO EM: &quot;&#125;, oDlg1,,, .F., .F., .F., .T., CLR_BLUE, CLR_WHITE, 092, 012)</span><br><span class="line">  oSay4 :&#x3D; TSay():New( 045,145,&#123;||cValToChar(nTempo)&#125;, oDlg1,,, .F., .F., .F., .T., CLR_HRED, CLR_WHITE, 100, 026)</span><br><span class="line">  oBtn1 :&#x3D; TButton():New( 060, 066,&quot;OK&quot;,oDlg1,&#123;||oDlg1:End()&#125;, 056, 016,,,, .T.,,&quot;&quot;,,,, .F. )</span><br><span class="line"></span><br><span class="line">  nMilissegundos :&#x3D; 1000 &#x2F;&#x2F; Disparo será de 1 em 1 segundos</span><br><span class="line">  oTimer :&#x3D; TTimer():New(nMilissegundos, &#123;||  IIf(nStop&lt;&gt;nLimite, Tempo(), oDlg1:End()) &#125;, oDlg1 )</span><br><span class="line">  oTimer:Activate()</span><br><span class="line"></span><br><span class="line">  oDlg1:Activate(,,,.T.)</span><br><span class="line"></span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
+
+<p>O segredo está na função <strong>TTimer</strong>, ela irá disparar o bloco de códigos <em>“{|| IIf(nStop&lt;&gt;10,Tempo(),oDlg1:End()) }”</em> a cada 1000 milissegundos (1 segundo).</p>
+<p>Em seguida, criamos uma Static Function com nome de <strong>Tempo()</strong> para atualizar a variável de controle dos segundos.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Static Function Tempo()</span><br><span class="line"></span><br><span class="line">  nTempo :&#x3D; nLimite - nStop</span><br><span class="line"></span><br><span class="line">  oSay4:Refresh()</span><br><span class="line"></span><br><span class="line">  nStop++</span><br><span class="line"></span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
+
+<p>Essa função é responsável por atualizar a variável de controle de parada <em>nStop</em> e atualizar a variável que demonstra segundo a segundo para o usuário quanto falta para fechar a tela <em>nTempo</em>.<br>E claro, antes de sair da função é realizado um refresh no objeto TSay <em>oSay4</em>.</p>
+<p>Está ai, algo bem simples, porém interessante e com muita aplicação !!</p>
+]]></content>
+      <categories>
+        <category>Protheus</category>
+      </categories>
+      <tags>
+        <tag>ADVPL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DBAccess Distribuído</title>
     <url>/blog/Protheus/DBAccess-Distribuido/</url>
     <content><![CDATA[<p>Várias empresas utilizam o balanceamento de carga nos serviços (AppServer) para que consigam ter uma melhor administração e estabilidade no ERP, fazendo assim a distribuição dos acessos ao Protheus em diversos serviços que podem estar configurados em servidores na rede ou tudo em apenas um servidor.</p>
@@ -50,7 +78,7 @@
         <category>Protheus</category>
       </categories>
       <tags>
-        <tag>dbAccess</tag>
+        <tag>DBACCESS</tag>
       </tags>
   </entry>
   <entry>
